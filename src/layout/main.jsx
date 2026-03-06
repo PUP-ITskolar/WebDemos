@@ -1,3 +1,6 @@
+// THIS WEBSITE WILL NOW HOUSE ALL THE CRASH COURSE EPISODES!
+
+import "../index.css";
 import { useState } from "react";
 let _ = Array.from({ length: 10 }, (_, i) => i + 1).sort();
 function shuffleCopy(arr) {
@@ -43,34 +46,36 @@ _ = shuffleCopy(_);
 export default function Main() {
     const array = useArray();
     return (
-        <div>
-            <div className="flex">
-                <p>Crash Course 2 - Interactive Demonstration</p>
-                <p>By: bonnyyyy</p>
+        <div id="container" className="flex flex-col justify-center content-center p-10">
+            <div id="header" className="flex flex-col ">
+                <p className="title">Crash Course 2 - Interactive Demonstration</p>
+                <p className="subtitle">By: bonnyyyy</p>
             </div>
-            <div className="flex flex-1 h-20rem flex-row justify-center items-end">
-                {array.items.map((item, index) => {
-                    let color = "";
-                    if (array.selectedItem == index) color = "bg-blue-400";
-                    else if (array.selectedItem == index + 1) color = "bg-blue-300";
-                    else color = "bg-blue-50";
-                    return (
-                        <div key={index} className={`border w-8 text-center m-1.25 p-0 ${color}`} style={{ height: `${item * 1.25}rem` }}>
-                            {item}
-                        </div>
-                    );
-                })}
-            </div>
-            <div className="flex justify-center m-2">
-                <button onClick={() => array.goBack()} disabled={array.disableBack} className="m-2 p-2 border">
-                    &lt;
-                </button>
-                <button onClick={() => array.swap()} className="m-2 p-2 border">
-                    Swap
-                </button>
-                <button onClick={() => array.goFront()} disabled={array.disableFront} className="m-2 p-2 border">
-                    &gt;
-                </button>
+            <div id="controlcont">
+                <div id="content" className="flex flex-row justify-center items-end">
+                    {array.items.map((item, index) => {
+                        let color = "";
+                        if (array.selectedItem == index) color = "bg-blue-400";
+                        else if (array.selectedItem == index + 1) color = "bg-blue-300";
+                        else color = "bg-blue-50";
+                        return (
+                            <div key={index} className={`border w-8 text-center m-1.25 p-0 ${color} box`} style={{ height: `${item * 1.25}rem` }}>
+                                {item}
+                            </div>
+                        );
+                    })}
+                </div>
+                <div id="controls" className="flex justify-center m-2">
+                    <button onClick={() => array.goBack()} disabled={array.disableBack} className="m-2 p-2 border ">
+                        &lt;
+                    </button>
+                    <button onClick={() => array.swap()} className="m-2 p-2 border">
+                        Swap
+                    </button>
+                    <button onClick={() => array.goFront()} disabled={array.disableFront} className="m-2 p-2 border">
+                        &gt;
+                    </button>
+                </div>
             </div>
         </div>
     );
