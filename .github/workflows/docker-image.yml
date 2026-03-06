@@ -1,0 +1,20 @@
+name: ITskolarSystem-Dashboard CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    defaults:
+      run:
+        shell: bash
+        working-directory: /srv/ITskolar-System
+    steps:
+    - name: Pull Repo and Submodules
+      run: git submodule update --remote demo.itskolarngbayan.xyz
+    - name: Build Container
+      run: docker compose build demo-builder
+    - name: Start Containers and push to nginx
+      run: docker compose up -d demo-builder
