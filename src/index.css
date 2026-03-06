@@ -21,11 +21,13 @@ body {
     DISPLAY:FLEX;
     align-items: center;
     justify-content: center;
+    /* overflow-x:hidden; */
 }
 #container{
 background: rgba(217, 217, 217, 0.2);
 box-shadow: 4px 4px 58.1px 5px rgba(0, 0, 0, 0.25);
 border-radius: 48px;
+transition:all 0.3s ease;
 }
 .box{
     transition: all 0.3s ease;

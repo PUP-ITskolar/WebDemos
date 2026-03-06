@@ -46,13 +46,13 @@ _ = shuffleCopy(_);
 export default function Main() {
     const array = useArray();
     return (
-        <div id="container" className="flex flex-col justify-center content-center p-10">
-            <div id="header" className="flex flex-col ">
+        <div id="container" className="flex flex-col justify-center content-center w-11/12 lg:w-6/12 lg:p-10 ">
+            <div id="header" className="flex flex-col p-8">
                 <p className="title">Crash Course 2 - Interactive Demonstration</p>
                 <p className="subtitle">By: bonnyyyy</p>
             </div>
-            <div id="controlcont">
-                <div id="content" className="flex flex-row justify-center items-end">
+            <div id="controlcont pl" className="p-2">
+                <div id="content" className="flex flex-row justify-center items-end w-full">
                     {array.items.map((item, index) => {
                         let color = "";
                         if (array.selectedItem == index) color = "bg-blue-400";
@@ -76,6 +76,14 @@ export default function Main() {
                         &gt;
                     </button>
                 </div>
+            </div>
+            <div className="flex gap-5 px-8 mb-6 text-center">
+                <p className="text-sm text-gray-500 ">
+                    <span className="font-bold">Site by: </span>bonnyyyy
+                    </p>
+                <p className="text-sm text-gray-500">
+                    <span className="font-bold">Designed by: </span>akihikooooo
+                    </p>
             </div>
         </div>
     );
