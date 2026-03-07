@@ -13,7 +13,9 @@ export function useArray() {
     const [selectedItem, setSelectedItem] = useState(1);
     const [disableBack, setDisableBack] = useState(true);
     const [disableFront, setDisableFront] = useState(false);
+    const [onSelect, setOnSelect] = useState(false)
     function goBack() {
+        setOnSelect(false)
         if (selectedItem - 1 <= 1) {
             setDisableBack(true);
         } else {
@@ -22,6 +24,7 @@ export function useArray() {
         setSelectedItem(selectedItem - 1);
     }
     function goFront() {
+        setOnSelect(false)
         if (selectedItem + 1 >= 10) {
             setDisableFront(true);
         } else {
@@ -29,18 +32,11 @@ export function useArray() {
         }
         setSelectedItem(selectedItem + 1);
     }
-    function swap() {
-        if (selectedItem >= 10) return;
-        let cache = [...items];
-        cache[selectedItem] += cache[selectedItem - 1];
-        cache[selectedItem - 1] = cache[selectedItem] - cache[selectedItem - 1];
-        cache[selectedItem] -= cache[selectedItem - 1];
-        setSelectedItem(selectedItem + 1);
-        setDisableBack(false);
-        setItems(cache);
+    function select() {
+        setOnSelect(true)
     }
 
-    return { items, selectedItem, disableBack, disableFront, goBack, goFront };
+    return { items, selectedItem, disableBack, disableFront, onSelect, goBack, goFront, select };
 }
 _ = shuffleCopy(_);
 export default function BubbleSort() {
@@ -57,11 +53,10 @@ export default function BubbleSort() {
                         let color = "";
                         if (array.selectedItem == index + 1) color = "bg-blue-400";
                         else color = "bg-blue-50";
-                        console.log(item, index);
-                        const height = array.selectedItem - 1 == index ?  `${item * 1.25}rem` : "12.5rem"
+                        const height = (array.selectedItem - 1 == index && array.onSelect) ?  `${item * 1.25}rem` : "12.5rem"
                         return (
                             <div key={index} className={`border w-8 text-center m-1.25 p-0 ${color} box`} style={{ height: height }}>
-                                {array.selectedItem - 1 == index ? item : "?"}
+                                {(array.selectedItem - 1 == index && array.onSelect) ? item : "?"}
                             </div>
                         );
                     })}
@@ -70,7 +65,7 @@ export default function BubbleSort() {
                     <button onClick={() => array.goBack()} disabled={array.disableBack} className="m-2 p-2 border ">
                         &lt;
                     </button>
-                    <button onClick={() => alert("Congrats!")} className="m-2 p-2 border">
+                    <button onClick={() => array.select()} className="m-2 p-2 border">
                         Select
                     </button>
                     <button onClick={() => array.goFront()} disabled={array.disableFront} className="m-2 p-2 border">
