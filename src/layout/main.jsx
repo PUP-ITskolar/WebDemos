@@ -9,15 +9,30 @@ export default function Main() {
             <div id="header" className="flex flex-col p-8">
                 <p className="title">Crash Course 2 - Interactive Demonstration</p>
             </div>
-            <div>
-                <p>Sorting</p>
-                <a href="/sort/insertion">Insertion Sort</a>
-                <a href="/sort/selection">Selection Sort</a>
-                <a href="/sort/bubble">Bubble Sort</a>
-                <br/>
-                <a href="/search/linear">Linear Search</a>
-                <a href="/search/binary">Binary Search</a>
+            <div id="menu-cont"className="flex lg:flex-row flex-1 p-4">
+                <div id="sort-cont" className="w-1/2">
+                    <p className="font-bold text-xl">Sorting</p>
+                    {["Insertion", "Selection", "Bubble"].map((menu, index) => (
+                        <a href={`/sort/${menu.toLowerCase()}`} className="menu-name">
+                            <p key={index}>
+                                {menu} Sort
+                            </p>
+                        </a>
+                    ))}
+                </div>
+
+                <div id="search-cont" className="w-1/2">
+                    <p className="font-bold text-xl">Search</p>
+                    {["Linear", "Binary"].map((menu, index) => (
+                        <a href={`/search/${menu.toLowerCase()}`} className="menu-name">
+                            <p key={index}>
+                                {menu} search
+                            </p>
+                        </a>
+                    ))}
+                </div>
             </div>
+            <p>Sorry ampanget, rinush kasi ako ni bonnyyyy</p>
         </div>
     );
 }

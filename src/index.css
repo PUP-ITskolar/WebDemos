@@ -29,6 +29,16 @@ box-shadow: 4px 4px 58.1px 5px rgba(0, 0, 0, 0.25);
 border-radius: 48px;
 transition:all 0.3s ease;
 }
+.menu-name{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color:white;
+}
+.menu-name p{
+    background:#000000;
+    margin: 1rem;
+    padding:0.5rem;
+}
 .box{
     transition: all 0.3s ease;
 }
