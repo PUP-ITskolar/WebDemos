@@ -29,16 +29,7 @@ box-shadow: 4px 4px 58.1px 5px rgba(0, 0, 0, 0.25);
 border-radius: 48px;
 transition:all 0.3s ease;
 }
-.menu-name{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color:white;
-}
-.menu-name p{
-    background:#000000;
-    margin: 1rem;
-    padding:0.5rem;
-}
+
 .box{
     transition: all 0.3s ease;
 }
@@ -53,7 +44,7 @@ transition:all 0.3s ease;
     color:white;
 }
 button {
-    /* background: rgba(255, 255, 255, 0.8); */
+    background: rgba(255, 255, 255, 0.8);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
 }

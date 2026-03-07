@@ -11,10 +11,10 @@ export default function Main() {
             </div>
             <div id="menu-cont"className="flex lg:flex-row flex-1 p-4">
                 <div id="sort-cont" className="w-1/2">
-                    <p className="font-bold text-xl">Sorting</p>
+                    <p className="font-bold text-xl text-white">Sorting</p>
                     {["Insertion", "Selection", "Bubble"].map((menu, index) => (
-                        <a href={`/sort/${menu.toLowerCase()}`} className="menu-name">
-                            <p key={index}>
+                        <a href={`/sort/${menu.toLowerCase()}`} className="font-regular text-white hover:text-blue-400">
+                            <p key={index} className="text-xl m-1 p-0.5">
                                 {menu} Sort
                             </p>
                         </a>
@@ -22,17 +22,16 @@ export default function Main() {
                 </div>
 
                 <div id="search-cont" className="w-1/2">
-                    <p className="font-bold text-xl">Search</p>
+                    <p className="font-bold text-xl text-white">Search</p>
                     {["Linear", "Binary"].map((menu, index) => (
-                        <a href={`/search/${menu.toLowerCase()}`} className="menu-name">
-                            <p key={index}>
-                                {menu} search
+                        <a href={`/search/${menu.toLowerCase()}`} className="font-regular text-white hover:text-blue-400">
+                            <p key={index} className="text-xl m-1 p-0.5">
+                                {menu} Search
                             </p>
                         </a>
                     ))}
                 </div>
             </div>
-            <p>Sorry ampanget, rinush kasi ako ni bonnyyyy</p>
         </div>
     );
 }
