@@ -5,8 +5,9 @@ RUN npm ci
 
 FROM node:23-alpine AS build
 WORKDIR /apptemp
-COPY --from=dependencies node_modules package.json package-lock.json ./
-COPY src/ index.html vite.config.js ./
+COPY --from=dependencies /apptemp/ ./
+COPY index.html vite.config.js ./
+COPY ./src ./src
 RUN npm run build
 
 FROM busybox:latest AS deploy
